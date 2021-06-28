@@ -1,0 +1,17 @@
+<%- include('../partials/header.ejs') %>
+<div class='container'>
+<h1>Edit Comment</h1>
+<form action='/product/<%=collection_id%>/comments/<%=comment._id%>?_method=PUT' method='POST'>
+
+      <label  class="form-label">Comment</label>
+      <input type="text" class="form-control" name='comment[text]' placeholder='<%= comment.text %>' value = '<%= comment.text %>'>
+    </div>
+
+
+    <div class="container"><button type="submit" class="btn btn-primary">Submit</button></div>
+
+      <!-- <a href='/product'>Go back</a> -->
+  </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

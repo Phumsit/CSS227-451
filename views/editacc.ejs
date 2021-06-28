@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+<div class='container'>
+  <form action='/user/<%= user._id %>?_method=PUT' method='POST'>
+    <div class="mb-3">
+      <label class="form-label">ชื่อผู้ใช้งาน</label>
+      <input type="text" class="form-control" name='user[username]' placeholder='Username'>
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">ชื่อ-นามสกุล</label>
+      <input type="text" class="form-control" name='user[fullname]' placeholder='Full name'>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">อีเมล</label>
+        <input type="text" class="form-control" name='user[email]' placeholder='Email'>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">ที่อยู่</label>
+        <input type="text" class="form-control" name='user[address]' placeholder='Address'>
+    </div>
+    
+
+    <!-- <button class="btn btn-primary">Edit Account</button> -->
+    <div class="container"><button type="submit" class="btn btn-warning">ยืนยัน</button></div>
+
+  </form>
+</div>
+
+<%- include('partials/footer.ejs') %>

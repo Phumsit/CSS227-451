@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+<div class='container'>
+<form action='/product' method='POST' enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">ชื่อสินค้า</label>
+      <input type="text" class="form-control" name='collection[name]' placeholder='ชื่อสินค้า'>
+    </div>
+
+
+    <div class="mb-3">
+      <label  class="form-label">รูปภาพ</label>
+      <input type="file" class="form-control" name='image' accept="image/*">
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">ประเภท</label>
+      <select type="text" id="" class="form-select" name="collection[category]" >
+      <option value="ของใช้">ของใช้</option>
+      <option value="แฟชั่น">แฟชั่น</option>
+      <option value="ของเล่น">ของเล่น</option>
+      <option value="เครื่องสำอาง">เครื่องสำอาง</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">รายละเอียด</label>
+      <input type="text" class="form-control" name='collection[desc]' placeholder='รายละเอียด'>
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">ราคา</label>
+      <input type="text" class="form-control" name='collection[pr]' placeholder='ราคา'>
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">จำนวน</label>
+      <input type="text" class="form-control" name='collection[qty]' placeholder='จำนวน'>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="border-color: orange; background-color: orange;">เพิ่มสินค้า</button>
+    
+  </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

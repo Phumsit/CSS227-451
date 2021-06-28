@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') %>
+<p style="text-align: center; font-size: 40px;"  ><%= collection.name %></p>
+<img style="display: block; margin-left: auto; margin-right: auto; "src="<%= collection.image %>" >
+
+<p><%= collection.desc %></p>
+<p style="font-size: 20px;">ราคา <%= collection.pr %> บาท</p>
+<p style="font-size: 20px;">จำหน่ายโดย <%= collection.author.username %></p>
+<p style="font-size: 20px;">มีสินค้า <%= collection.qty %> ชิ้น </p>
+<p style="font-size: 20px;">หมวดหมู่ <%= collection.category %></p>
+<% if(currentUser && collection.author.id.equals(currentUser._id)){ %>
+
+    <a class="btn btn-warning" href = '/product/<%=collection._id%>/edit'>แก้ไขข้อมูลสินค้า</a>
+    <form id= 'delete-form' action = '/product/<%=collection._id%>?_method=DELETE' method="POST">
+        <button type="submit" class="btn btn-danger">ลบสินค้า</button>
+    </form>
+<% } %>
+<a class="btn btn-primary" href = '/product/<%=collection._id %>/comments/new'>เพิ่มแสดงความคิดเห็น</a>
+<p><a class="btn btn-primary" href = '/cart' style="border-color: orange; background-color: orange;">เพิ่มลงตะกร้า</a></p>
+
+<p style="font-size: 20px;">ความคิดเห็น</p>
+<% collection.comments.forEach(function(comment){ %>
+    <p>
+        <strong><%= comment.author.username %></strong> - <%= comment.text %>
+    </p> 
+    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+        <a href = '/product/<%= collection._id %>/comments/<%=comment._id%>/edit' class="btn btn-warning" >แก้ไขความคิดเห็น</a>
+        <form id= 'delete-form' action = '/product/<%= collection._id %>/comments/<%=comment._id%>?_method=DELETE' method="POST">
+            <button type="submit" class="btn btn-danger">ลบความคิดเห็น</button>
+        </form>
+    <% } %>
+
+    
+<% }); %>
+
+
+<%- include('../partials/footer.ejs') %>

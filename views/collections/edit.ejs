@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs') %>
+<div class='container'>
+<form action='/product/<%= collection._id %>?_method=PUT' method='POST' enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Product Name</label>
+      <input type="text" class="form-control" name='collection[name]' placeholder='<%= collection.name %>' value="<%= collection.name %>">
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">Product Image</label>
+      <img src="<%= collection.image %>" width="300px">
+      <input type="file" class="form-control" name='image' accept="image/*">
+    </div>
+
+
+    <div class="mb-3">
+      <label  class="form-label">ประเภท</label>
+      <select type="text" id="" class="form-select" name="collection[category]" >
+      <option value="ของใช้">ของใช้</option>
+      <option value="แฟชั่น">แฟชั่น</option>
+      <option value="ของเล่น">ของเล่น</option>
+      <option value="เครื่องสำอาง">เครื่องสำอาง</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">Product Description</label>
+      <input type="text" class="form-control" name='collection[desc]' placeholder='<%= collection.desc %>' value="<%= collection.desc %>">
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">Product Price</label>
+      <input type="text" class="form-control" name='collection[pr]' placeholder='<%= collection.pr %>' value="<%= collection.pr %>">
+    </div>
+
+    <div class="mb-3">
+      <label  class="form-label">Quantity</label>
+      <input type="text" class="form-control" name='collection[qty]' placeholder='<%= collection.qty %>' value="<%= collection.qty %>">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Edit Product Info</button>
+    
+  </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

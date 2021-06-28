@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="dropdown" >
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="border-color: orange; background-color: orange;">
+    ประเภท
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="product/Type/ของใช้" >ของใช้</a></li>
+    <li><a class="dropdown-item" href="product/Type/แฟชั่น" >แฟชั่น</a></li>
+    <li><a class="dropdown-item" href="product/Type/ของเล่น" >ของเล่น</a></li>
+    <li><a class="dropdown-item" href="product/Type/เครื่องสำอาง" >เครื่องสำอาง</a></li>
+    </ul>
+</div>
+
+
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+
+
+        <% collection.forEach(function(collection){  %>
+        <div class="col">
+          <div class="card shadow-sm" style=" height: 450px; width: 300px;">
+            <a href="/product/<%= collection._id %>">
+            <img  src='<%= collection.image %>' class='card-img-top' height="300px" width="300px"></a>
+
+            <div class="card-body">
+               <h5 class = 'card-title'><%= collection.name %></h5> 
+              <p class="card-text"></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/product/<%= collection._id %>" class="btn btn-sm btn-outline-secondary">ดูรายละเอียด</a>
+                </div>
+                <small style="color: red; font-size: 25px;"><%= collection.pr %> ฿ <!--  ( <%= collection.qty %> in stock) --> </small> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  
+
+<%- include('../partials/footer.ejs') %>

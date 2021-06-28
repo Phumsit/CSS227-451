@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+
+
+
+
+<section class="py-5 text-center container">
+    <h1>รายละเอียดบัญชี</h1>
+
+    <% if(currentUser) {%>
+        <p><strong>ชื่อผู้ใช้งาน : </strong> <%= currentUser.username %></p>
+        <p><strong>ชื่อ-นามสกุล : </strong> <%= currentUser.fullname %></p>
+        <p><strong>อีเมล : </strong> <%= currentUser.email %></p>
+        <p><strong>ที่อยู่ : </strong> <%= currentUser.address %></p>
+    <% } %>
+        <p>
+            <a  href="/user/<%=currentUser._id %>/edit" class="btn btn-primary my-2" style="border-color: orange; background-color: orange;" >แก้ข้อมูล</a>
+            <a  href="/product/new" class="btn btn-primary my-2" style="border-color: orange; background-color: orange;" >เพิ่มสินค้า</a>
+        </p>
+      
+</section>
+
+
+
+<%- include('partials/footer.ejs') %>

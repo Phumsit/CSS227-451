@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+
+<section class="py-5 text-center container">
+<h1>เข้าสู่ระบบ</h1>
+<form action='/login' method='POST'>
+    
+    <div class="mb-3">
+        <label  class="form-label">ชื่อผู้ใช้งาน : </label>
+        <input type='text' name='username' placeholder='username'>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">รหัสผ่าน : </label>
+        <input type='password' name='password' placeholder='password'>
+    </div>
+    
+
+    <input class="btn btn-primary" type='submit' style="border-color: orange; background-color: orange;" value='เข้าสู่ระบบ'>
+
+    
+
+</form>
+</section>
+<%- include('partials/footer.ejs') %>

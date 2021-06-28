@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+
+
+<section class="py-5 text-center container">
+<h1>ลงทะเบียน</h1>
+<form action='/register' method='POST'>
+
+    <div class="mb-3">
+        <label  class="form-label">ชื่อผู้ใช้งาน : </label>
+        <input type='text' name='username' placeholder='username'>
+    </div>
+    
+    <div class="mb-3">
+        <label  class="form-label">รหัสผ่าน : </label>
+        <input type='password' name='password' placeholder='password'>
+    </div>
+
+    
+    <button class="btn btn-primary" style="border-color: orange; background-color: orange;">ลงทะเบียน</button>
+
+</form>
+</section>
+
+<%- include('partials/footer.ejs') %>
